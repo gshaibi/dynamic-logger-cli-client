@@ -1,7 +1,7 @@
 {
   "name": "dynamic-logger-cli-client",
   "version": "1.0.5-alpha",
-  "description": "",
+  "description": "CLI client for dynamic-logger-express package",
   "main": "lib/index",
   "bin": {
     "dynamic-logger": "lib/index.js"

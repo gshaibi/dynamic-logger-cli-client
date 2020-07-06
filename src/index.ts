@@ -4,35 +4,20 @@ import inquirer = require('inquirer');
 import axios = require('axios');
 
 interface IAnswers {
-  component: 'as' | 'clif';
   action: 'removeLogpoint' | 'setLogpoint';
+  url: string;
   urlRegex?: string;
   lineNumber?: number;
   message?: string;
   breakpointId?: string;
 }
 
-const componentsPorts = {
-  clif: 3002,
-  as: 3003
-}
-
 inquirer
   .prompt([
     {
-      type: 'list',
-      choices: [
-        {
-          value: 'as',
-          name: 'Async Services'
-        },
-        {
-          value: 'clif',
-          name: 'Clif'
-        }
-      ],
-      message: 'Select component',
-      name: 'component'
+      type: 'input',
+      message: 'What is the dynamic logger server url? (include scheme and port. e.g: http://localhost:3001)',
+      name: 'url'
     },
     {
       type: 'list',
@@ -97,7 +82,7 @@ inquirer
 
 
 async function makeRestCall(answers: IAnswers) {
-  const url = `http://localhost:${componentsPorts[answers.component]}/logpoint`;
+  const url = `${answers.url}/logpoint`;
   const body = {
     urlRegex: answers.urlRegex,
     lineNumber: answers.lineNumber,
