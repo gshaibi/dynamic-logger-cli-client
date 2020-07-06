@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import inquirer = require('inquirer');
 import axios = require('axios');
 
