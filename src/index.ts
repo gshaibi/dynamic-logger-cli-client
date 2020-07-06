@@ -13,7 +13,7 @@ interface IAnswers {
 }
 
 const componentsPorts = {
-  clif: 3001,
+  clif: 3002,
   as: 3003
 }
 
@@ -69,7 +69,7 @@ inquirer
     },
     {
       type: 'input',
-      message: 'Enter log message (e.g: \\"GUY:\\", myVar )',
+      message: 'Enter log message. e.g: \"My variable:\", myVar',
       name: 'message',
       when: answers => answers.action === 'setLogpoint'
     }
