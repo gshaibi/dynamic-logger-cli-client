@@ -72,6 +72,13 @@ inquirer
       message: 'Enter log message. e.g: \"My variable:\", myVar',
       name: 'message',
       when: answers => answers.action === 'setLogpoint'
+    },
+    // Remove logpoint params
+    {
+      type: 'input',
+      message: 'Enter logpoint id',
+      name: 'breakpointId',
+      when: answers => answers.action === 'removeLogpoint'
     }
   ])
   .then(answers => {
